@@ -1,4 +1,4 @@
-# Advanced Web Development Frameworks (ITUE301) — Laboratory Practicals 1–8
+# Advanced Web Development Frameworks (ITUE301) — Laboratory Practicals 1–13
 
 **Course:** B.Tech (IT/CE/CSE/AIML) — Advanced Web Development Frameworks  
 **Subject Code:** ITUE301  
@@ -10,12 +10,12 @@
 
 ## 📌 Repository Overview
 
-This repository contains the complete, production-grade source code, test suites, verified outputs, genuine execution screenshots, and formatted Word laboratory reports (`.docx`) for all **eight** practicals of the Advanced Web Development Frameworks curriculum.
+This repository contains the complete, production-grade source code, test suites, verified outputs, genuine execution screenshots, and formatted Word laboratory reports (`.docx`) for all **thirteen (1–13)** practicals of the Advanced Web Development Frameworks curriculum.
 
 Every practical is structured inside its own dedicated directory according to official submission standards:
-- Independent, clean project scaffolding (`package.json`, Vite/Node configurations).
+- Independent, clean project scaffolding (`package.json`, Vite/Node/Docker configurations).
 - Modular, well-documented source code solving primary and supplementary tasks.
-- Dedicated `screenshots/` directory containing genuine, high-resolution execution screenshots captured via automated headless browser and API testing.
+- Dedicated `screenshots/` directory containing genuine, high-resolution execution screenshots captured via automated headless browser, API testing, and terminal execution logs.
 - Official practical report formatted strictly using the prescribed institutional format (`File-Format.docx`).
 
 ---
@@ -32,6 +32,11 @@ Every practical is structured inside its own dedicated directory according to of
 | **6** | [Full Stack Integration: React + Node + MongoDB](#practical-6-full-stack-integration-react--node--mongodb) | MERN Stack, CORS, Asynchronous State Sync | [📁 Practical-6](./Practical-6) | [📄 Report](./Practical-6/Practical-6-Report.docx) |
 | **7** | [Authentication and Middleware Pipeline](#practical-7-authentication-and-middleware-pipeline) | JWT, Bcrypt.js, Auth Guard Middleware | [📁 Practical-7](./Practical-7) | [📄 Report](./Practical-7/Practical-7-Report.docx) |
 | **8** | [Performance Optimization and Lazy Loading in React](#practical-8-performance-optimization-and-lazy-loading-in-react) | React.lazy, Suspense, Route Code-Splitting | [📁 Practical-8](./Practical-8) | [📄 Report](./Practical-8/Practical-8-Report.docx) |
+| **9** | [In-Memory Caching and Query Optimization](#practical-9-in-memory-caching-and-query-optimization) | Node-Cache, Cache Invalidation, Benchmarking | [📁 Practical-9](./Practical-9) | [📄 Report](./Practical-9/Practical-9-Report.docx) |
+| **10** | [Asynchronous Processing with Event-Driven Architecture](#practical-10-asynchronous-processing-with-event-driven-architecture) | Node.js EventEmitter, Non-Blocking Workers | [📁 Practical-10](./Practical-10) | [📄 Report](./Practical-10/Practical-10-Report.docx) |
+| **11** | [Containerization with Docker and Docker Compose](#practical-11-containerization-with-docker-and-docker-compose) | Docker, Docker Compose, Multi-Stage Builds | [📁 Practical-11](./Practical-11) | [📄 Report](./Practical-11/Practical-11-Report.docx) |
+| **12** | [CI/CD Pipeline with GitHub Actions](#practical-12-cicd-pipeline-with-github-actions) | GitHub Actions, YAML, Jest, Supertest | [📁 Practical-12](./Practical-12) | [📄 Report](./Practical-12/Practical-12-Report.docx) |
+| **13** | [AI API Integration into a Web Application](#practical-13-ai-api-integration-into-a-web-application) | OpenAI/Gemini Bridge, Graceful Degradation | [📁 Practical-13](./Practical-13) | [📄 Report](./Practical-13/Practical-13-Report.docx) |
 
 ---
 
@@ -39,7 +44,6 @@ Every practical is structured inside its own dedicated directory according to of
 
 ### Practical 1: Introduction to React and Component Architecture
 - **Objective:** Scaffold a modern React development environment using Vite and build a modular student portfolio with reusable functional components (`Header`, `About`, `Skills`, `Projects`, `Footer`) using unidirectional props data flow.
-- **Key Features:** Clean component hierarchy, props validation, zero JSX duplication, dynamic array rendering.
 - **Run Instructions:**
   ```bash
   cd Practical-1/student-portfolio
@@ -51,7 +55,6 @@ Every practical is structured inside its own dedicated directory according to of
 
 ### Practical 2: State Management and Routing in React
 - **Objective:** Extend the portfolio application with client-side multi-page routing via React Router v6 and reactive state management using `useState`.
-- **Key Features:** `BrowserRouter`, `Routes`, `Route`, `NavLink` navigation without full-page reloads, interactive bio toggle, real-time controlled contact form with live character counting, dark/light mode toggle, and custom 404 route fallback.
 - **Run Instructions:**
   ```bash
   cd Practical-2/portfolio-routing
@@ -62,8 +65,7 @@ Every practical is structured inside its own dedicated directory according to of
 ---
 
 ### Practical 3: API Integration and Data Rendering in React
-- **Objective:** Consume public REST APIs (GitHub Repositories API) inside React using `useEffect`, handling full asynchronous request lifecycles (loading spinner, error boundaries, data rendering, search filtering, and retry triggers).
-- **Key Features:** Async/await data fetching on component mount, live keyword filter, custom animated `Spinner`, resilient `ErrorMessage` component with retry capability, and simulation toggle for network error demonstration.
+- **Objective:** Consume public REST APIs (GitHub Repositories API) inside React using `useEffect`, handling full asynchronous request lifecycles.
 - **Run Instructions:**
   ```bash
   cd Practical-3/portfolio-api-integration
@@ -75,7 +77,6 @@ Every practical is structured inside its own dedicated directory according to of
 
 ### Practical 4: Building a RESTful API with Node.js and Express
 - **Objective:** Design and implement a RESTful backend server with complete CRUD endpoints using an Express middleware pipeline.
-- **Key Features:** Request logging middleware (`[timestamp] METHOD URL`), JSON content-type validator for POST/PUT, standard HTTP status codes (`200`, `201`, `400`, `404`, `500`), centralized global error-handling middleware.
 - **Run Instructions:**
   ```bash
   cd Practical-4
@@ -87,7 +88,6 @@ Every practical is structured inside its own dedicated directory according to of
 
 ### Practical 5: MongoDB Integration and Schema Design with Mongoose
 - **Objective:** Connect MongoDB database to Express and enforce data validation through Mongoose schema.
-- **Key Features:** Strongly-typed schema (`title`, `description`, `completed`, `priority` enum `['low', 'medium', 'high']`, `createdAt`), pre-save whitespace trimming hooks, structured validation error responses in JSON format, `.env` security configuration.
 - **Run Instructions:**
   ```bash
   cd Practical-5
@@ -99,7 +99,6 @@ Every practical is structured inside its own dedicated directory according to of
 
 ### Practical 6: Full Stack Integration: React + Node + MongoDB
 - **Objective:** Wire the React frontend client with the Express/MongoDB backend into an end-to-end full-stack web application.
-- **Key Features:** Backend CORS configuration for cross-origin requests, shared central `api.js` client, real-time CRUD operations from the UI, asynchronous state synchronization, toast notifications on operations, delete confirmation dialogues.
 - **Run Instructions:**
   ```bash
   # Terminal 1 - Start Backend API
@@ -117,7 +116,6 @@ Every practical is structured inside its own dedicated directory according to of
 
 ### Practical 7: Authentication and Middleware Pipeline
 - **Objective:** Implement secure user authentication using JSON Web Tokens (JWT) and Bcrypt password hashing within the Express middleware pipeline.
-- **Key Features:** `POST /register` with salted password hashing, `POST /login` with credential verification and signed JWT token issuance, custom `authMiddleware` inspecting Bearer tokens, server-side payload validation middleware, protected task routes, `/me` user profile endpoint.
 - **Run Instructions:**
   ```bash
   cd Practical-7
@@ -129,13 +127,79 @@ Every practical is structured inside its own dedicated directory according to of
 
 ### Practical 8: Performance Optimization and Lazy Loading in React
 - **Objective:** Optimize frontend load performance and initial bundle size using route-based dynamic code splitting with `React.lazy()` and `Suspense`.
-- **Key Features:** On-demand chunk loading for `Projects` and `Contact` routes, animated Suspense fallback indicator, bundle size reduction verified via Vite Rollup build outputs.
 - **Run Instructions:**
   ```bash
   cd Practical-8/perf-lazy-loading
   npm install
   npm run build
   npm run preview
+  ```
+
+---
+
+### Practical 9: In-Memory Caching and Query Optimization
+- **Objective:** Implement server-side caching using `node-cache` with a 60-second TTL on `GET /tasks`, enforce strict cache invalidation on write operations (`POST`, `PUT`, `DELETE`), and measure latency differences between uncached and cached requests.
+- **Empirical Benchmark Findings:**
+  - **Uncached Database Query:** ~65.12 ms – 113.59 ms
+  - **In-Memory Cache Hit:** ~1.54 ms – 1.83 ms (**>97% latency reduction**)
+- **Run Instructions:**
+  ```bash
+  cd Practical-9
+  npm install
+  node server.js
+  ```
+
+---
+
+### Practical 10: Asynchronous Processing with Event-Driven Architecture
+- **Objective:** Implement non-blocking background notifications using Node.js built-in `EventEmitter`. Decouple notification dispatching from the critical HTTP request path so API responses return immediately before background workers complete.
+- **Key Features:** `task-created`, `task-deleted`, and `error` events, timestamp logging proving response-before-handler completion, inspection audit endpoint `/events/audit`.
+- **Run Instructions:**
+  ```bash
+  cd Practical-10
+  npm install
+  node server.js
+  ```
+
+---
+
+### Practical 11: Containerization with Docker and Docker Compose
+- **Objective:** Containerize the full-stack MERN application using Docker and orchestrate all three services (`frontend`, `backend`, `mongodb`) using `docker-compose.yml` on a shared bridge network.
+- **Key Features:** Multi-stage frontend build (Node/Vite), backend production container, MongoDB volume persistence (`mongo-data`), inter-service DNS resolution via container service names.
+- **Run Instructions:**
+  ```bash
+  cd Practical-11
+  docker compose up --build
+  ```
+
+---
+
+### Practical 12: CI/CD Pipeline with GitHub Actions
+- **Objective:** Automate continuous integration and automated testing using GitHub Actions (`.github/workflows/ci.yml`).
+- **Key Features:** Automatic trigger on push and pull requests to `main`, dependency caching, automated API tests using Jest and Supertest, verified pass/fail pipeline diagnosis.
+- **Run Instructions:**
+  ```bash
+  cd Practical-12
+  npm install
+  npm test
+  ```
+
+---
+
+### Practical 13: AI API Integration into a Web Application
+- **Objective:** Securely integrate third-party AI capabilities (OpenAI/Gemini proxy) into the task management workflow via backend route (`/api/ai/generate-description`).
+- **Key Features:** Server-side API key protection (`.env`), client-side AI suggestions for task descriptions and priorities, rate-limiting throttle, graceful degradation fallback on third-party outage, ethical AI review disclaimers.
+- **Run Instructions:**
+  ```bash
+  # Terminal 1 - Backend AI Proxy
+  cd Practical-13/backend
+  npm install
+  node server.js
+
+  # Terminal 2 - Frontend Client
+  cd Practical-13/frontend/ai-task-client
+  npm install
+  npm run dev
   ```
 
 ---

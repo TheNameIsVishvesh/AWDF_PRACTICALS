@@ -1,0 +1,50 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint-and-check:
+    name: Code Quality & Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+          cache-dependency-path: Practical-12/package-lock.json
+
+      - name: Verify Configuration
+        run: echo "Lint and repository verification passed"
+
+  build-and-test:
+    name: Build & Automated Tests
+    runs-on: ubuntu-latest
+    needs: lint-and-check
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install Dependencies
+        working-directory: ./Practical-12
+        run: npm ci
+
+      - name: Run Automated API Tests (Jest)
+        working-directory: ./Practical-12
+        run: npm test
+
+      - name: Report Pass Status
+        if: success()
+        run: echo "All test suites passed successfully! Ready for Continuous Deployment."

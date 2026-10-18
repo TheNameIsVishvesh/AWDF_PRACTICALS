@@ -1,0 +1,21 @@
+{
+  "name": "practical-12",
+  "version": "1.0.0",
+  "description": "CI/CD Pipeline with GitHub Actions and Automated Jest Tests",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest --verbose",
+    "test:fail": "jest --testNamePattern='intentionally-broken-test'"
+  },
+  "keywords": [],
+  "author": "Vishvesh Joshi",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
+  }
+}
